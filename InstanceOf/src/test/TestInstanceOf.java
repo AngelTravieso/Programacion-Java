@@ -8,10 +8,10 @@ public class TestInstanceOf {
     public static void main(String[] args) {
 
         Empleado empleado = new Empleado("Juan", 5000);
-//        determinarTipo(empleado);
+        determinarTipo(empleado);
 
         empleado = new Gerente("Karla", 10000, "Contabilidad");
-        determinarTipo(empleado);
+//        determinarTipo(empleado);
 
     }
 
@@ -22,13 +22,24 @@ public class TestInstanceOf {
             tipo en especifico, esto solo sirve para datos de tipo Object
             y no primivitos, se recomienda preguntar desde la clase menos
             generica, clases hijas primeros y así sucesivamente
-        */
+         */
         if (empleado instanceof Gerente) {
             System.out.println("Es de tipo Gerente");
-        } else if(empleado instanceof Empleado) {
+
+            // casting para cambiar el tipo de la variable
+            Gerente gerente = (Gerente) empleado;
+            System.out.println("gerente = " + gerente.getDepartamento());
+//            ((Gerente) empleado).getDepartamento();
+
+        } else if (empleado instanceof Empleado) {
             System.out.println("Es de tipo Empleado");
-        } else if(empleado instanceof Object) {
+            // ClassCastException
+//            Gerente gerente = (Gerente) empleado;
+//            System.out.println("gerente = " + gerente.getDepartamento());
+            System.out.println("empleado = " + empleado.getNombre());
+        } else if (empleado instanceof Object) {
             System.out.println("Es de tipo Object");
+            empleado.toString();
         }
     }
 

@@ -19,4 +19,12 @@ public class Gerente extends Empleado {
         return super.obtenerDetalles() + ", departamento: " + this.departamento;
     }
 
+    public String getDepartamento() {
+        return departamento;
+    }
+
+    public void setDepartamento(String departamento) {
+        this.departamento = departamento;
+    }
+
 }
