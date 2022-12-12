@@ -14,19 +14,41 @@ public class TestColecciones {
         miLista.add("Martes");
         miLista.add("Miercoles");
         miLista.add("Jueves");
+        
+        // En las listas se pueden duplicar los elementos
         miLista.add("Viernes");
+        miLista.add("Viernes");
+        imprimir(miLista);
 
 //        System.out.println("miLista = " + miLista);
-        // iterar lista (foreach)
-        // el elemento que se itera es de tipo Object
-//        for(Object elemento : miLista) {
-//            System.out.println(elemento);
-//        }
-        // funcion lambda
-        // la variable sera del tipo que maneje la coleccion
-        miLista.forEach(elemento -> {
-            System.out.println("elemento = " + elemento);
-        });
+        System.out.println("\n");
+
+        // El set no garantiza que se mantenga el orden de los elementos
+        // el set es mas rapido porque no maneja un orden
+        // no se permiten elementos duplicados
+        Set miSet = new HashSet();
+        
+        miSet.add("Viernes");
+        miSet.add("Sabado");
+        miSet.add("Domingo");
+        
+        // tomara el ultimo elemento repetido
+        miSet.add("Domingo");
+
+        imprimir(miSet);
 
     }
+
+    // funcion generica para imprimir (polimorfismo)
+    public static void imprimir(Collection coleccion) {
+        //        for(Object elemento: coleccion) {
+        //            System.out.println("elemento = " + coleccion);
+        //        }
+
+        // funcion lambda
+        coleccion.forEach(elemento -> {
+            System.out.println("elemento = " + elemento);
+        });
+    }
+
 }
