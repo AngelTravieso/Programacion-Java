@@ -24,5 +24,8 @@ public class TestManejoArchivos {
         anexarArchivo(nombreArchivo, "adios");
         anexarArchivo(nombreArchivo, "yes");
 
+        // Leer informacion del archivo
+        leerArchivo(nombreArchivo);
+
     }
 }
