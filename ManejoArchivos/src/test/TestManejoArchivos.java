@@ -1,6 +1,7 @@
 package test;
 
-import static manejoarchivos.ManejoArchivos.crearArchivo;
+// import statico
+import static manejoarchivos.ManejoArchivos.*;
 
 /**
  * Informacion util manejo archivos http://jmoral.es/blog/IO-java
@@ -8,10 +9,13 @@ import static manejoarchivos.ManejoArchivos.crearArchivo;
 public class TestManejoArchivos {
 
     public static void main(String[] args) {
-        var nombreArchivo = "C::\\carpetaprueba.txt";
+        var nombreArchivo = "prueba.txt";
 
         // Crear archivo
         crearArchivo(nombreArchivo);
+
+        // Escribir en el archivo creado previamente
+        escribirArchivo(nombreArchivo, "Hola desde Java");
 
     }
 }

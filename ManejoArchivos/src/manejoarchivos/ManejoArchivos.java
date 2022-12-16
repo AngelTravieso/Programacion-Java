@@ -4,6 +4,7 @@ import java.io.*;
 
 public class ManejoArchivos {
 
+    // crear archivo
     public static void crearArchivo(String nombreArchivo) {
         // Crear objeto tipo File en memoria
         File archivo = new File(nombreArchivo);
@@ -25,5 +26,27 @@ public class ManejoArchivos {
             e.printStackTrace(System.out);
         }
 
+    }
+
+    // escribir en archivo
+    public static void escribirArchivo(String nombreArchivo, String contenido) {
+
+        File archivo = new File(nombreArchivo);
+
+        try {
+            // Abriendo el archivo
+            PrintWriter salida = new PrintWriter(archivo);
+
+            // escribir en el archivo
+            salida.println(contenido);
+
+            // cerrar el flujo del archivo
+            salida.close();
+
+            System.out.println("Se ha escrito en el archivo");
+
+        } catch (FileNotFoundException e) {
+            e.printStackTrace(System.out);
+        }
     }
 }
