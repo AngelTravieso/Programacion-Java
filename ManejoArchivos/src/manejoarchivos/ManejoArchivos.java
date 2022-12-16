@@ -49,4 +49,29 @@ public class ManejoArchivos {
             e.printStackTrace(System.out);
         }
     }
+
+    public static void anexarArchivo(String nombreArchivo, String contenido) {
+        File archivo = new File(nombreArchivo);
+
+        try {
+            /*
+            escribir en un archivo, [nombre del archivo, append (para agregar mas informacion y no sustituir)
+             */
+            PrintWriter salida = new PrintWriter(new FileWriter(nombreArchivo, true)); // puede arrojar excepcion (se llama IOException)
+
+            // escribir en el archivo
+            salida.println(contenido);
+
+            // cerrar el flujo del archivo
+            salida.close();
+
+            System.out.println("Se ha escrito en el archivo");
+
+        } catch (FileNotFoundException e) {
+            e.printStackTrace(System.out);
+        } catch (IOException e) {
+            e.printStackTrace(System.out);
+        }
+    }
+
 }
