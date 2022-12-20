@@ -10,8 +10,7 @@ public class ManejoArchivos {
         File archivo = new File(nombreArchivo);
 
         /**
-         * PrintWriter clase usada para escribir cualquier tipo cualquier tipo
-         * de data
+         * PrintWriter clase usada para escribir cualquier tipo de data
          */
         try {
             // Abriendo el archivo
