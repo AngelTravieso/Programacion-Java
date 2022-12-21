@@ -3,7 +3,6 @@ package negocio;
 import datos.*;
 import domain.Pelicula;
 import excepciones.*;
-import java.io.*;
 
 public class CatalogoPeliculasImpl implements ICatalogoPeliculas {
 
@@ -45,7 +44,7 @@ public class CatalogoPeliculasImpl implements ICatalogoPeliculas {
 
             // imprimir listado de peliculas (lambda)
             peliculas.forEach(pelicula -> {
-                System.out.println(pelicula);
+                System.out.println(pelicula + "\n");
             });
 
             // capturar error de tipo más generico (opciona)
@@ -84,6 +83,10 @@ public class CatalogoPeliculasImpl implements ICatalogoPeliculas {
                 this.datos.borrar(nombreArchivo);
 
                 // lo vuelvo a crear
+                this.datos.crear(nombreArchivo);
+
+            } else {
+                // crear el archivo
                 this.datos.crear(nombreArchivo);
             }
 

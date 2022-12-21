@@ -62,7 +62,8 @@ public class AccesoDatosImpl implements IAccesoDatos {
             // cerrar el flujo del archivo
             salida.close();
 
-            System.out.println("Se ha escrito informacion al archivo: " + pelicula);
+            System.out.println(String.format("Se ha escrito la pelicula %s en el catalogo de %s\n", pelicula, nombreArchivo.substring(0, nombreArchivo.length() - 4)));
+
         } catch (FileNotFoundException ex) {
             ex.printStackTrace();
             throw new EscrituraDatosEx("Excepcion al escribir peliculas: " + ex.getMessage());
@@ -91,7 +92,7 @@ public class AccesoDatosImpl implements IAccesoDatos {
             while (linea != null) {
                 // buscar ignorando si es mayuscula o minuscula
                 if (buscar != null && buscar.equalsIgnoreCase(linea)) {
-                    resultado = String.format("%s encontrada en el indice ", buscar, numeroLinea);
+                    resultado = String.format("%s encontrada en el indice %s", buscar, numeroLinea);
                     break;
 
                 }
@@ -125,7 +126,7 @@ public class AccesoDatosImpl implements IAccesoDatos {
             var salida = new PrintWriter(new FileWriter(archivo));
 
             salida.close();
-            System.out.println("Se ha creado el archivo");
+            System.out.println("Se ha creado el archivo\n");
         } catch (IOException ex) {
             ex.printStackTrace();
             throw new AccesoDatosEx("Excepcion al crear archivo: " + ex.getMessage());
