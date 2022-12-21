@@ -41,7 +41,7 @@ public class CPJLaboratorioFinal {
                         // nombre archivo
                         nombreArchivo = String.format("%s.txt", scanner.next());
 
-                        catalogoPeliculas.iniciarArchivo(nombreArchivo);
+                        catalogoPeliculas.iniciarCatalogoPeliculas(nombreArchivo);
                         break;
                     // Agregar pelicula (al archivo ya creado) (2)
                     case Constantes.AGREGAR:

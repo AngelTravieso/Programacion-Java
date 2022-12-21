@@ -9,7 +9,7 @@ public class AccesoDatosImpl implements IAccesoDatos {
 
     // Verificar si el archivo existe
     @Override
-    public boolean existe(String nombreArchivo) throws AccesoDatosEx {
+    public boolean existe(String nombreArchivo) {
         File archivo = new File(nombreArchivo);
 
         return archivo.exists();
@@ -54,7 +54,7 @@ public class AccesoDatosImpl implements IAccesoDatos {
         var archivo = new File(nombreArchivo);
 
         try {
-            var salida = new PrintWriter(new FileWriter(nombreArchivo, anexar));
+            var salida = new PrintWriter(new FileWriter(archivo, anexar));
 
             // escribir pelicula en el archivo
             salida.println(pelicula.toString());
@@ -73,6 +73,7 @@ public class AccesoDatosImpl implements IAccesoDatos {
 
     }
 
+    // Buscar en archivo
     @Override
     public String buscar(String nombreArchivo, String buscar) throws LecturaDatosEx {
         var archivo = new File(nombreArchivo);
@@ -115,13 +116,33 @@ public class AccesoDatosImpl implements IAccesoDatos {
 
     }
 
+    // Crear archivo
     @Override
     public void crear(String nombreArchivo) throws AccesoDatosEx {
+        var archivo = new File(nombreArchivo);
+
+        try {
+            var salida = new PrintWriter(new FileWriter(archivo));
+
+            salida.close();
+            System.out.println("Se ha creado el archivo");
+        } catch (IOException ex) {
+            ex.printStackTrace();
+            throw new AccesoDatosEx("Excepcion al crear archivo: " + ex.getMessage());
+        }
 
     }
 
+    // Borrar archivo
     @Override
-    public void borrar(String nombreArchivo) throws AccesoDatosEx {
+    public void borrar(String nombreArchivo) {
+        var archivo = new File(nombreArchivo);
+
+        // Si el archivo existe
+        if (archivo.exists()) {
+            archivo.delete();
+            System.out.println("Se ha arrojado el archivo");
+        }
 
     }
 
